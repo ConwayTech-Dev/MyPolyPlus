@@ -14,6 +14,10 @@ A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux.
 <a href="https://workinprogress.com"><img src="https://img.shields.io/badge/macos-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0" alt="Get MyPoly+ for macOS"></a>
 <a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Get MyPoly+ for Linux"></a>
 
+# Features
+
+...WIP.
+
 # Contributing
 
 Your contributions are always welcome. Feel free to make PRs if you've improved the code.
