@@ -6,7 +6,7 @@
 
 # MyPoly+
 
-A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux.
+A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux. It's blazingly fast, bleeding edge, and can increase your productivity.
 
 # Download
 
