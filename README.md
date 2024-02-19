@@ -11,8 +11,8 @@ A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux.
 # Download
 
 <a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Windows%2095-008484?style=for-the-badge&logo=windows95&logoColor=white" alt="Get MyPoly+ for Windows"></a>
-<a href="https://workinprogress.com"><img src="[https://img.shields.io/badge/Windows%2095-008484?style=for-the-badge&logo=windows95&logoColor=white](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)" alt="Get MyPoly+ for macOS"></a>
-<a href="https://workinprogress.com"><img src="[https://img.shields.io/badge/Windows%2095-008484?style=for-the-badge&logo=windows95&logoColor=white](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)" alt="Get MyPoly+ for Linux"></a>
+<a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Windows%2095-008484?style=for-the-badge&logo=windows95&logoColor=white" alt="Get MyPoly+ for macOS"></a>
+<a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Windows%2095-008484?style=for-the-badge&logo=windows95&logoColor=white" alt="Get MyPoly+ for Linux"></a>
 
 # Contributing
 
