@@ -3,6 +3,9 @@
   "productName": "MyPoly+",
   "version": "1.0.0",
   "description": "A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ConwayTech-Dev/MyPolyPlus.git",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
