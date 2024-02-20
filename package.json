@@ -15,7 +15,8 @@
   "author": "Colin",
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
