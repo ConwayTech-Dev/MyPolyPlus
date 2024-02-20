@@ -1,0 +1,78 @@
+@keyframes animation-36 {
+  from {
+    width: 500px;
+    height: 7px;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 1;
+    transform: rotate(0deg);
+    border-radius: 0px 0px 0px 0px;
+  }
+  to {
+    width: 500px;
+    height: 7px;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 0;
+    transform: rotate(0deg);
+    border-radius: 0px 0px 0px 0px;
+  }
+}
+.animationClass-36 {
+  animation: animation-36 3.8328564167022705s cubic-bezier(0.28, -0.01, 1, 1.61)
+    0s normal forwards;
+}
+@keyframes animation-38 {
+  from {
+    width: 0.20000000298023224px;
+    height: 7px;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 1;
+    transform: rotate(0deg);
+    border-radius: 0px 0px 0px 0px;
+    background: linear-gradient(
+      246.8deg,
+      #ff3bb1ff 0%,
+      #d072f1ff 12%,
+      #cb39ffff 19%,
+      #4d7df6ff 26%,
+      #50c0e5ff 38%,
+      #53ffd5ff 49%,
+      #4bff48ff 62%,
+      #ffee52ff 78%,
+      #fd984eff 90%,
+      #ff2f2fff 100%
+    );
+  }
+  to {
+    width: 500px;
+    height: 7px;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    z-index: 1;
+    transform: rotate(0deg);
+    border-radius: 0px 0px 0px 0px;
+    background: linear-gradient(
+      246.8deg,
+      #ff3bb1ff 0%,
+      #d072f1ff 12%,
+      #cb39ffff 19%,
+      #4d7df6ff 26%,
+      #50c0e5ff 38%,
+      #53ffd5ff 49%,
+      #4bff48ff 62%,
+      #ffee52ff 78%,
+      #fd984eff 90%,
+      #ff2f2fff 100%
+    );
+  }
+}
+.animationClass-38 {
+  animation: animation-38 3.8328564167022705s cubic-bezier(0.28, -0.01, 1, 1.61)
+    0s normal forwards;
+}

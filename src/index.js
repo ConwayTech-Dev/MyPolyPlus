@@ -11,16 +11,28 @@ const createWindow = () => {
   const win = new BrowserWindow({
     show: false,
     titleBarStyle: 'hidden',
+    icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
-  
   });
-  win.maximize();
-  win.show();
-
-  // and load the index.html of the app.
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
+  
+  var splash = new BrowserWindow({
+    width: 500, height: 300,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true
+  });
+
+  splash.loadFile('src/splash/index.html');
+  splash.center();
+
+  setTimeout(function() {
+    splash.close();
+    win.show();
+    win.maximize();
+  }, 4200);
 };
 
 // This method will be called when Electron has finished
