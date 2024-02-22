@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "stateful-electron-window": "^1.0.0",
     "update-electron-app": "^3.0.0"
   },
   "devDependencies": {
