@@ -48,7 +48,6 @@ const template = [
         submenu: [
             { label: 'Light', type: 'radio' },
             { label: 'Dark', type: 'radio' },
-            { label: 'System', type: 'radio' },
         ]
     }
 ]

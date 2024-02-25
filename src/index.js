@@ -19,7 +19,6 @@ const createNormalWindow = () => {
     },
   });
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
-  win.webContents.insertCSS(__dirname, '/src/index.css')
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
@@ -52,8 +51,7 @@ const createFirstWindow = () => {
     },
   });
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
-  mainWindow.webContents.insertCSS(__dirname, '/src/index.css')
-
+  
   // Menu bar
   Menu.setApplicationMenu(null);
 

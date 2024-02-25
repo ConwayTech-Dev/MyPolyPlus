@@ -379,20 +379,20 @@ function waitForElm(selector) {
     document.querySelector(".quote").innerHTML = loading_messages[combinedIndex];
   }
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const head = document.getElementsByTagName('head')[0];
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = __dirname + '/src/index.css';
-    link.media = 'all';
-    head.appendChild(link);
-    // No need to remove the current CSS, as it will be overridden by the new one.
-  });
-
 // Fixing Blackbaud's ugly login screen
 document.getElementById(_ngcontent-ng-c2912364323).innerHTML = "Welcome back!"
-document.getElementById(_ngcontent-ng-c2912364323).remove
-document.getElementById(_ngcontent-ng-c1870898632).remove()
-document.getElementById(_ngcontent-ng-c330337366).remove()
-document.getElementById(_ngcontent-ng-c795452611).remove()
+document.getElementById(_ngcontent-ng-c2912364323).remove;
+document.getElementById(_ngcontent-ng-c1870898632).remove();
+document.getElementById(_ngcontent-ng-c330337366).remove();
+document.getElementById(_ngcontent-ng-c795452611).remove();
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const head = document.getElementsByTagName('head')[0];
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'file:///' + '/src/index.css';
+  link.media = 'all';
+  head.appendChild(link);
+  // No need to remove the current CSS, as it will be overridden by the new one.
+});
