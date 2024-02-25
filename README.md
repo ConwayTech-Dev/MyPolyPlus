@@ -20,3 +20,5 @@ A convenient and easy-to-use MyPoly client for macOS. It's blazingly fast, bleed
 # Contributing
 
 Contributions are always welcome — feel free to make PRs.
+
+[![wakatime](https://wakatime.com/badge/user/018d7550-1bc4-451e-a055-60833c44da89/project/018de20f-15f5-4782-afe3-eef5f9aa65c9.svg?style=for-the-badge)](https://wakatime.com/badge/user/018d7550-1bc4-451e-a055-60833c44da89/project/018de20f-15f5-4782-afe3-eef5f9aa65c9)
