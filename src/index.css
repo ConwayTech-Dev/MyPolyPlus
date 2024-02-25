@@ -6,6 +6,10 @@ body {
   padding: 2rem;
 }
 
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+}
+
 *, a, button {
   cursor: default;
   user-select: none;
