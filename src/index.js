@@ -70,9 +70,9 @@ const createFirstWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   if (firstRun()) {
-    createNormalWindow();
-  } else {
     createFirstWindow();
+  } else {
+    createNormalWindow();
   }
 });
 
