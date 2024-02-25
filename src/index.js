@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
+const { mainMenu } = require('./menubar');
 const path = require('path');
 const firstRun = require('electron-first-run');
 
@@ -18,7 +19,11 @@ const createNormalWindow = () => {
     },
   });
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
-  
+  win.webContents.insertCSS(__dirname, '/src/index.css')
+
+  // Menu bar
+  Menu.setApplicationMenu(mainMenu);
+
   var splash = new BrowserWindow({
     width: 500, height: 300,
     transparent: true,
@@ -47,7 +52,11 @@ const createFirstWindow = () => {
     },
   });
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
-  
+  mainWindow.webContents.insertCSS(__dirname, '/src/index.css')
+
+  // Menu bar
+  Menu.setApplicationMenu(null);
+
   var splash = new BrowserWindow({
     width: 500, height: 300,
     transparent: true,
