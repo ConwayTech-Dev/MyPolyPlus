@@ -42,6 +42,9 @@ const createFirstWindow = () => {
     show: false,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
+    webPreferences: {
+      preload: path.join(__dirname, 'preload-first-run.js'),
+    },
   });
   win.loadURL("https://app.blackbaud.com/signin?redirectUrl=https%3A%2F%2Fpolytechnic.myschoolapp.com%2Fapp");
   
