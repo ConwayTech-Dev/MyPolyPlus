@@ -391,7 +391,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
 // Fixing Blackbaud's ugly login screen
-document.getElementById(h1-spacing.center.sky-page-heading).innerHTML = "Welcome back!"
+document.getElementById(_ngcontent-ng-c2912364323).innerHTML = "Welcome back!"
+document.getElementById(_ngcontent-ng-c2912364323).remove
 document.getElementById(_ngcontent-ng-c1870898632).remove()
 document.getElementById(_ngcontent-ng-c330337366).remove()
 document.getElementById(_ngcontent-ng-c795452611).remove()
