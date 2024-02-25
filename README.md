@@ -10,7 +10,7 @@ A convenient and easy-to-use MyPoly client for macOS. It's blazingly fast, bleed
 
 # Download
 
-<a href="https://github.com/ConwayTech-Dev/MyPolyPlus/releases/download/v1.0.0-alpha.3/MyPoly+.zip"><img src="https://img.shields.io/badge/macos-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0" alt="Get MyPoly+ for macOS"></a>
+<a href="https://github.com/ConwayTech-Dev/MyPolyPlus/releases/download/v1.0.0-alpha.3/MyPoly+.zip"><img src="./assets/downloadformacos.png" alt="Get MyPoly+ for macOS"></a>
 
 # Features
 
