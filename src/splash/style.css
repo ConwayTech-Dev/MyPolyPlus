@@ -68,9 +68,9 @@
 
 .loading-text-and-rectangle {
   position: absolute;
-  width: 112px;
+  width: 120px;
   height: 21px;
-  top: 266px;
+  top: 272px;
   left: 6px;
   opacity: 1;
   z-index: 3;
@@ -78,7 +78,7 @@
 }
 .loading-rectangle {
   position: absolute;
-  width: 112px;
+  width: 120px;
   height: 21px;
   top: 0px;
   left: 0px;
@@ -91,7 +91,7 @@
 }
 .loading-text {
   position: absolute;
-  width: 110px;
+  width: 120px;
   height: 16px;
   top: 3px;
   left: 6px;
