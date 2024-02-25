@@ -6,18 +6,17 @@
 
 # MyPoly+
 
-A convenient and easy-to-use MyPoly client for Windows, Mac, and Linux. It's blazingly fast, bleeding edge, and can increase your productivity.
+A convenient and easy-to-use MyPoly client for macOS. It's blazingly fast, bleeding edge, and can increase your productivity.
 
 # Download
 
-<a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Get MyPoly+ for Windows"></a>
-<a href="https://workinprogress.com"><img src="https://img.shields.io/badge/macos-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0" alt="Get MyPoly+ for macOS"></a>
-<a href="https://workinprogress.com"><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Get MyPoly+ for Linux"></a>
+<a href="https://github.com/ConwayTech-Dev/MyPolyPlus/releases/download/v1.0.0-alpha.3/MyPoly+.zip"><img src="https://img.shields.io/badge/macos-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0" alt="Get MyPoly+ for macOS"></a>
 
 # Features
 
-...WIP.
+* Bypass Blackbaud's timeout with MyPolyAutoLogin integration
+* Use custom themes for an even more beautiful MyPoly interface
 
 # Contributing
 
-Your contributions are always welcome. Feel free to make PRs if you've improved the code.
+Contributions are always welcome — feel free to make PRs.
