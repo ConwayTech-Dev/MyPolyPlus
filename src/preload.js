@@ -389,3 +389,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     head.appendChild(link);
     // No need to remove the current CSS, as it will be overridden by the new one.
   });
+
+// Fixing Blackbaud's ugly login screen
+document.getElementById(h1-spacing.center.sky-page-heading).innerHTML = "Welcome back!"
