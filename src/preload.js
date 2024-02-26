@@ -380,11 +380,19 @@ function waitForElm(selector) {
   }
 
 // Fixing Blackbaud's ugly login screen
-document.getElementById(_ngcontent-ng-c2912364323).innerHTML = "Welcome back!"
-document.getElementById(_ngcontent-ng-c2912364323).remove;
-document.getElementById(_ngcontent-ng-c1870898632).remove();
-document.getElementById(_ngcontent-ng-c330337366).remove();
-document.getElementById(_ngcontent-ng-c795452611).remove();
+document.getElementsByClassName("sky-page-heading").innerHTML = "Welcome back!"
+document.getElementsByClassName("intro-paragraph").remove();
+document.getElementsByClassName("spa-auth-row").remove();
+document.getElementsByClassName("spa-auth-link").remove();
+document.getElementsByClassName("spa-auth-full").remove();
+document.getElementsByClassName("center").remove();
+document.getElementsByClassName("sky-field-label").remove();
+
+// Fixing the bad Poly logo
+var img = document.createElement("img");
+img.src = "https://raw.githubusercontent.com/ConwayTech-Dev/MyPolyPlus/main/assets/icon.png";
+var src = document.getElementsByClassName("bb-logo");
+src.appendChild(img);
 
 window.addEventListener('DOMContentLoaded', async () => {
   const head = document.getElementsByTagName('head')[0];

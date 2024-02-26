@@ -1,9 +1,15 @@
 // Fixing Blackbaud's ugly login screen
-document.getElementById(_ngcontent-ng-c2912364323).innerHTML = "Welcome to MyPoly+!"
-document.getElementById(_ngcontent-ng-c2912364323).innerHTML = "Welcome to MyPoly+, a beautiful and convenient MyPoly client."
-document.getElementById(_ngcontent-ng-c1870898632).remove()
-document.getElementById(_ngcontent-ng-c330337366).remove()
-document.getElementById(_ngcontent-ng-c795452611).remove()
+document.getElementsByClassName("sky-page-heading").innerHTML = "Welcome back!"
+document.getElementsByClassName("intro-paragraph").remove();
+document.getElementsByClassName("spa-auth-row").remove();
+document.getElementsByClassName("spa-auth-link").remove();
+document.getElementsByClassName("spa-auth-full").remove();
+document.getElementsByClassName("center").remove();
+document.getElementsByClassName("sky-field-label").remove();
+
+// Fixing the bad Poly logo
+var logo = document.getElementsByClassName("bb-logo")[1];
+logo.src = './assets/icon.png'
 
 window.addEventListener('DOMContentLoaded', async () => {
     const head = document.getElementsByTagName('head')[0];
