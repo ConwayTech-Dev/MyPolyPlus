@@ -31,6 +31,7 @@ const template = [
         submenu: [
             { role: 'reload' },
             { role: 'togglefullscreen' },
+            { role: 'toggledevtools'},
         ]
     },
     {
