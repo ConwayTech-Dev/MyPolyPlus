@@ -6,9 +6,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
-  link.integrity = 'sha384-n6VRASnL5lEZSf0HAo0yiUqBQU22vDvstla2A6dId3mkUPHbtrpAd74A1qslW+uZ'; // Spoof integrity
   link.href = 'https://conwaytech-dev.github.io/MyPolyPlus/src/index.css';
-  link.crossOrigin = 'anonymous';
   head.appendChild(link);
   
   // removing the current css
