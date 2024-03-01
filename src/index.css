@@ -1,8 +1,61 @@
-html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI' !important;
-}
-
 *, a, button {
   cursor: default !important;
   user-select: none !important;
+}
+
+pri-100-bgc {
+  -webkit-app-region: drag important;
+}
+
+#googleButtonLabel {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
+  color: #202124 !important;
+  font-weight: bold !important;
+}
+
+.sky-theme-modern .sky-btn-primary {
+  background-color: #FFFFFF !important;
+  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+}
+
+.spa-auth-googlesignin-primary-logo-button {
+  border-radius: 11px 0 0 11px !important;
+}
+
+.spa-auth-googlesignin-primary-button {
+  border-radius: 0 11px 11px 0 !important;
+}
+
+.sky-theme-modern .sky-btn-default:hover {
+  background-color: #d7dae359 !important;
+  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+}
+
+.sky-btn-primary:hover {
+  background-color: #d7dae359 !important;
+  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+}
+
+.sky-page-heading {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
+  color: #202124 !important;
+  font-weight: bold !important;
+  font-size: 40px !important;
+}
+
+.bb-logo {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #1f1f1f; color: white; }
+}
+
+@media (prefers-color-scheme: light) {
+  body { background: #ddd; color: black; }
 }
