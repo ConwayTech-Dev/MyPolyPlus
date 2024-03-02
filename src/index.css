@@ -13,6 +13,7 @@ pri-100-bgc {
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-color: #ffb23e !important;
+  font-weight: bold !important;
 }
 
 .sky-theme-modern .sky-btn-primary {
@@ -44,6 +45,7 @@ pri-100-bgc {
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-color: #ffb23e !important;
+  font-weight: bold !important;
 }
 
 .bb-logo {

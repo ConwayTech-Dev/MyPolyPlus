@@ -47,10 +47,10 @@ const template = [
     {
         label: 'Theme',
         submenu: [
-            { label: 'Light', type: 'radio' },
+            { label: 'Light', type: 'radio', default: true },
             { label: 'Dark', type: 'radio' },
         ]
-    }
+    },
 ]
 
 module.exports.mainMenu = Menu.buildFromTemplate(template);
