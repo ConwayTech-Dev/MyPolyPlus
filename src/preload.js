@@ -45,6 +45,18 @@ function waitForElm(selector) {
       margin: 0;
       padding: 0;
   }
+
+body {
+  background-image:  
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+var wp = ['.', '#00ff00', '#0000ff'];
+var random_color = colors[Math.floor(Math.random() * colors.length)];
+document.getElementById('title').style.color = random_color;
+
   .splashText {
       font-family: 'Montserrat', sans-serif !important;
       font-size: 2rem !important;
