@@ -199,16 +199,14 @@ loadingDiv.style.justifyContent = "center";
 loadingDiv.style.alignItems = "center";
 loadingDiv.style.zIndex = "1000000"; // high enough to overlay the entire content
 
-var body = document.getElementsByTagName('body')[0];
-
 // Choose a wallpaper to use
 var wp = ['https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/1.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/2.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/3.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/4.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/5.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/6.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/7.jpg?raw=true'];
-const rw = wp[Math.floor(Math.random() * wp.length)];
-localStorage.setItem('wallpaper', rw);
+sessionStorage.setItem('wallpaper', wp[Math.floor(Math.random() * wp.length)]);
 
 // Add background to while loadingDiv is active
 document.addEventListener("DOMContentLoaded", () => {
-  var getWp = localStorage.getItem('wallpaper');
+  var body = document.getElementsByTagName('body')[0];
+  var getWp = sessionStorage.getItem('wallpaper');
   body.style.backgroundImage = `url(${getWp})`;
   body.style.backgroundSize = "cover";
   body.style.backgroundAttachment = "fixed";
@@ -231,8 +229,9 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     
 // check if we are logged into the main page rather than using cookies we look for an html element
   if (document.querySelector("#site-header") != null) {
-    loadingDiv.remove();
+    var body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = "none";
+    loadingDiv.remove();
     console.log("logged in bc we see site header");
     return;
   }
@@ -243,8 +242,10 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         "https://polytechnic.myschoolapp.com/app/student#student"
       )
     ) {
-      loadingDiv.remove();
+      var body = document.getElementsByTagName('body')[0];
       body.style.backgroundImage = "none";
+      loadingDiv.remove();
+  
       console.log("logged in");
     }
   };
