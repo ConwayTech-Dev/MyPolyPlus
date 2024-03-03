@@ -46,19 +46,8 @@ function waitForElm(selector) {
       padding: 0;
   }
 
-body {
-  background-image:  
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-
-var wp = ['.', '#00ff00', '#0000ff'];
-var random_color = colors[Math.floor(Math.random() * colors.length)];
-document.getElementById('title').style.color = random_color;
-
   .splashText {
-      font-family: 'Montserrat', sans-serif !important;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1rem !important;
@@ -66,7 +55,7 @@ document.getElementById('title').style.color = random_color;
       all: unset;
   }
   .quote {
-      font-family: 'Montserrat', sans-serif !important;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.1rem !important;
@@ -209,6 +198,19 @@ document.getElementById('title').style.color = random_color;
   loadingDiv.style.justifyContent = "center";
   loadingDiv.style.alignItems = "center";
   loadingDiv.style.zIndex = "1000000"; // high enough to overlay the entire content
+
+  // Choose a wallpaper to use
+  var wp = ['https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/1.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/2.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/3.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/4.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/5.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/6.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/7.jpg?raw=true'];
+  const rw = wp[Math.floor(Math.random() * wp.length)];
+
+  // Add background to while loadingDiv is active
+  document.addEventListener("DOMContentLoaded", () => {
+    var body = document.getElementsByTagName('body')[0];
+    body.style.backgroundImage = `url(${rw})`;
+    body.style.backgroundSize = "cover";
+    body.style.backgroundAttachment = "fixed";
+    body.style.backgroundRepeat = "no-repeat";
+  })
   
   document.addEventListener("DOMContentLoaded", async function (event) {
     // waitForElm("#img-login-logo").then((elm) => {
@@ -217,7 +219,7 @@ document.getElementById('title').style.color = random_color;
     //   addQuoteToDiv();
     //   window.location.href = "https://signin.blackbaud.com/signin/?sessionClear=true&redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login";
     // })
-  
+    
     // we need this to track changes across relative urls where the domain doesnt change
     window.onhashchange = function () {
       console.log("window changed");
@@ -227,7 +229,8 @@ document.getElementById('title').style.color = random_color;
   // check if we are logged into the main page rather than using cookies we look for an html element
     if (document.querySelector("#site-header") != null) {
       loadingDiv.remove();
-      console.log("logged in bc we see site headre");
+      body.style.backgroundImage = "none";
+      console.log("logged in bc we see site header");
       return;
     }
   
@@ -238,6 +241,7 @@ document.getElementById('title').style.color = random_color;
         )
       ) {
         loadingDiv.remove();
+        body.style.backgroundImage = "none";
         console.log("logged in");
       }
     };
@@ -408,5 +412,5 @@ window.addEventListener('DOMContentLoaded', async () => {
     const js = document.createElement('script');
     js.src = 'https://conwaytech-dev.github.io/MyPolyPlus/src/renderer.js';
     js.type = 'text/javascript';
-    head.appendChild(link);
+    head.appendChild(js);
     });

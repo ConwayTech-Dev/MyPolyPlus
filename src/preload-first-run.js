@@ -14,5 +14,5 @@ window.addEventListener('DOMContentLoaded', async () => {
     const js = document.createElement('script');
     js.src = 'https://conwaytech-dev.github.io/MyPolyPlus/src/renderer.js';
     js.type = 'text/javascript';
-    head.appendChild(link);
+    head.appendChild(js);
     });

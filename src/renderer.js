@@ -14,14 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
   observer.observe(document, { childList: true, subtree: true });
 });
 
-// Fixing Blackbaud's ugly login screen
-document.getElementsByClassName("intro-paragraph").remove();
-document.getElementsByClassName("spa-auth-row").remove();
-document.getElementsByClassName("spa-auth-link").remove();
-document.getElementsByClassName("spa-auth-full").remove();
-document.getElementsByClassName("center").remove();
-document.getElementsByClassName("sky-field-label").remove();
-
 window.addEventListener('DOMContentLoaded', () => {
     // Fixing the bad Poly logo
   var logo = document.getElementsByClassName("bb-logo")[0];
