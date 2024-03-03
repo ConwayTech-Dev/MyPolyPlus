@@ -379,28 +379,22 @@ function waitForElm(selector) {
     document.querySelector(".quote").innerHTML = loading_messages[combinedIndex];
   }
 
-// Fixing Blackbaud's ugly login screen
-document.getElementsByClassName("sky-page-heading").innerHTML = "Welcome back!"
-document.getElementsByClassName("intro-paragraph").remove();
-document.getElementsByClassName("spa-auth-row").remove();
-document.getElementsByClassName("spa-auth-link").remove();
-document.getElementsByClassName("spa-auth-full").remove();
-document.getElementsByClassName("center").remove();
-document.getElementsByClassName("sky-field-label").remove();
-
-// Fixing the bad Poly logo
-var img = document.createElement("img");
-img.src = "https://raw.githubusercontent.com/ConwayTech-Dev/MyPolyPlus/main/assets/icon.png";
-var src = document.getElementsByClassName("bb-logo");
-src.appendChild(img);
-
+// Add CSS and JS to the pages
 window.addEventListener('DOMContentLoaded', async () => {
+  // adding CSS
   const head = document.getElementsByTagName('head')[0];
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
-  link.href = 'file:///' + '/src/index.css';
-  link.media = 'all';
+  link.href = 'https://conwaytech-dev.github.io/MyPolyPlus/src/index.css';
   head.appendChild(link);
-  // No need to remove the current CSS, as it will be overridden by the new one.
-});
+  });
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    // adding renderer.js
+    const head = document.getElementsByTagName('head')[0];
+    const js = document.createElement('script');
+    js.src = 'https://conwaytech-dev.github.io/MyPolyPlus/src/renderer.js';
+    js.type = 'text/javascript';
+    head.appendChild(link);
+    });
