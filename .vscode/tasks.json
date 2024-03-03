@@ -7,6 +7,20 @@
 			"problemMatcher": [],
 			"label": "npm: start",
 			"detail": "electron-forge start"
+		},
+		{
+			"type": "npm",
+			"script": "package",
+			"problemMatcher": [],
+			"label": "npm: package",
+			"detail": "electron-forge package"
+		},
+		{
+			"type": "npm",
+			"script": "make",
+			"problemMatcher": [],
+			"label": "npm: make",
+			"detail": "electron-forge make"
 		}
 	]
 }
