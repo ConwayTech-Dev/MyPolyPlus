@@ -198,20 +198,33 @@ loadingDiv.style.display = "flex";
 loadingDiv.style.justifyContent = "center";
 loadingDiv.style.alignItems = "center";
 loadingDiv.style.zIndex = "1000000"; // high enough to overlay the entire content
+loadingDiv.id = "loadingDiv";
 
 // Choose a wallpaper to use
 var wp = ['https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/1.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/2.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/3.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/4.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/5.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/6.jpg?raw=true', 'https://github.com/ConwayTech-Dev/MyPolyPlus/blob/main/assets/Wallpapers/7.jpg?raw=true'];
 sessionStorage.setItem('wallpaper', wp[Math.floor(Math.random() * wp.length)]);
 
 // Add background to while loadingDiv is active
-document.addEventListener("DOMContentLoaded", () => {
-  var body = document.getElementsByTagName('body')[0];
-  var getWp = sessionStorage.getItem('wallpaper');
-  body.style.backgroundImage = `url(${getWp})`;
-  body.style.backgroundSize = "cover";
-  body.style.backgroundAttachment = "fixed";
-  body.style.backgroundRepeat = "no-repeat";
-})
+const isDivThere = new MutationObserver(() => {
+    const loadingDiv = document.querySelector('.loadingDiv');
+    if (loadingDiv) {
+        console.log('loadingDiv has been loaded');
+        var body = document.getElementsByTagName('body')[0];
+        var getWp = sessionStorage.getItem('wallpaper');
+        body.style.backgroundImage = `url(${getWp})`;
+        body.style.backgroundSize = "cover";
+        body.style.backgroundAttachment = "fixed";
+        body.style.backgroundRepeat = "no-repeat";
+    }
+    else {
+        console.log('loadingDiv has not been loaded');
+        var body = document.getElementsByTagName('body')[0];
+        body.style.backgroundImage = "none";
+    }
+});
+
+// Start observing the document
+isDivThere.observe(document, { childList: true, subtree: true });
 
 document.addEventListener("DOMContentLoaded", async function (event) {
   // waitForElm("#img-login-logo").then((elm) => {
@@ -229,8 +242,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     
 // check if we are logged into the main page rather than using cookies we look for an html element
   if (document.querySelector("#site-header") != null) {
-    var body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = "none";
     loadingDiv.remove();
     console.log("logged in bc we see site header");
     return;
@@ -242,8 +253,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         "https://polytechnic.myschoolapp.com/app/student#student"
       )
     ) {
-      var body = document.getElementsByTagName('body')[0];
-      body.style.backgroundImage = "none";
       loadingDiv.remove();
   
       console.log("logged in");

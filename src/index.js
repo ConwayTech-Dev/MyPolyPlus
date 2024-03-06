@@ -52,9 +52,7 @@ const createFirstWindow = () => {
       preload: path.join(__dirname, 'preload-first-run.js'),
     },
   });
-  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&");
-  
-  win.webContents.insertCSS('');
+  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Chrome' });
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
