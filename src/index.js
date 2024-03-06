@@ -1,11 +1,19 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, nativeTheme } = require('electron');
 const { mainMenu } = require('./menubar');
 const path = require('path');
+const fs = require('fs');
 const firstRun = require('electron-first-run');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
+}
+
+// Read the theme from a file
+const themePath = path.join(app.getPath('userData'), 'theme.txt');
+let theme = 'light'; // Default theme
+if (fs.existsSync(themePath)) {
+  theme = fs.readFileSync(themePath, 'utf8');
 }
 
 const createNormalWindow = () => {
@@ -19,7 +27,7 @@ const createNormalWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
-  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&");
+  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Chrome' });
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
@@ -39,6 +47,10 @@ const createNormalWindow = () => {
     win.show();
     win.maximize();
   }, 4200);
+
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('change-theme', theme);
+  });
 };
 
 const createFirstWindow = () => {
@@ -74,7 +86,7 @@ const createFirstWindow = () => {
   }, 3850);
 
   win.webContents.on('did-finish-load', () => {
-    win.webContents.insertCSS('')
+    mainWindow.webContents.send('change-theme', theme);
   });
 };
 
@@ -104,4 +116,14 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
+});
+
+ipcMain.on('change-theme', (event, theme) => {
+  // Save the theme to a file
+  const themePath = path.join(app.getPath('userData'), 'theme.txt');
+  fs.writeFileSync(themePath, theme);
+});
+
+ipcMain.on('get-system-theme', (event) => {
+  event.returnValue = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
 });

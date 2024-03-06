@@ -1,4 +1,4 @@
-const { app, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 
 const isMac = process.platform === 'darwin';
 
@@ -24,6 +24,9 @@ const template = [
             { role: 'cut' },
             { role: 'copy' },
             { role: 'paste' },
+            { role: 'pasteAndMatchStyle' },
+            { role: 'delete' },
+            { role: 'selectAll' },
         ]
     },
     {
@@ -47,8 +50,12 @@ const template = [
     {
         label: 'Theme',
         submenu: [
-            { label: 'Light', type: 'radio', default: true },
-            { label: 'Dark', type: 'radio' },
+            { label: 'Light', type: 'radio', checked: true, click() {
+                BrowserWindow.getFocusedWindow().webContents.send('change-theme', 'light');}
+            },
+            { label: 'Dark', type: 'radio', click() {
+                BrowserWindow.getFocusedWindow().webContents.send('change-theme', 'dark');
+            } },
         ]
     },
 ]

@@ -1,3 +1,15 @@
+const { ipcRenderer } = require('electron');
+
+ipcRenderer.on('change-theme', (event, theme) => {
+  document.body.className = theme;
+});
+
+window.onLoad = () => {
+  const theme = ipcRenderer.sendSync('get-system-theme');
+  document.body.className = theme;
+};
+
+// Broken for now
 window.addEventListener('DOMContentLoaded', () => {
   // Create a new observer
   const observer = new MutationObserver(() => {
@@ -13,7 +25,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // Start observing the entire document
   observer.observe(document, { childList: true, subtree: true });
 });
-
 window.addEventListener('DOMContentLoaded', () => {
     // Fixing the bad Poly logo
   var logo = document.getElementsByClassName("banner-logo")[0];
