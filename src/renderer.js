@@ -1,5 +1,4 @@
-import { ipcRenderer } from 'electron';
-const { Menu } = require('electron');
+const { ipcRenderer, Menu } = require('electron');
 
 ipcRenderer.on('change-theme', (event, theme) => {
   document.body.className = theme + '!important';
@@ -38,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Start observing the entire document
   observer.observe(document, { childList: true, subtree: true });
 });
+
 window.addEventListener('DOMContentLoaded', () => {
     // Fixing the bad Poly logo
   var logo = document.getElementsByClassName("banner-logo")[0];
