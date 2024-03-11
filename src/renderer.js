@@ -1,5 +1,3 @@
-const { ipcRenderer, Menu } = require('electron'); // Not using this now, but it will be useful later
-
 // Broken for now
 window.addEventListener('DOMContentLoaded', () => {
   // Create a new observer

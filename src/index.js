@@ -118,12 +118,34 @@ app.on('activate', () => {
   }
 });
 
+
+// Save themes
 ipcMain.on('change-theme', (event, theme) => {
   // Save the theme to a file
   const themePath = path.join(app.getPath('userData'), 'theme.txt');
   fs.writeFileSync(themePath, theme);
 });
 
+// Themes
+ipcMain.on('update-menu-theme', (event, theme) => {
+  const themedMenu = Menu.getApplicationMenu();
+  const lightThemeItem = menu.getMenuItemById('light-theme');
+  const darkThemeItem = menu.getMenuItemById('dark-theme');
+
+  if (theme === 'light') {
+    lightThemeItem.checked = true;
+    darkThemeItem.checked = false;
+  } else if (theme === 'dark') {
+    lightThemeItem.checked = false;
+    darkThemeItem.checked = true;
+  } else {
+    null
+  }
+
+  Menu.setApplicationMenu(themedMenu);
+});
+
 ipcMain.on('get-system-theme', (event) => {
-  event.returnValue = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+  const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+  event.reply('system-theme', theme);
 });

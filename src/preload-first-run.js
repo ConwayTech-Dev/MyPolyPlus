@@ -1,3 +1,5 @@
+const { ipcRenderer, Menu } = require('electron');
+
 window.addEventListener('DOMContentLoaded', async () => {
   // adding CSS
   const head = document.getElementsByTagName('head')[0];
@@ -17,23 +19,25 @@ window.addEventListener('DOMContentLoaded', async () => {
     head.appendChild(js);
     });
 
-ipcRenderer.on('change-theme', (event, theme) => {
-  document.body.className = theme + '!important';
+ipcMain.on('update-menu-theme', (event, theme) => {
   const menu = Menu.getApplicationMenu();
-  const lThemeItem = menu.getMenuItemById('light-theme');
-  const dThemeItem = menu.getMenuItemById('dark-theme');
+  const lightThemeItem = menu.getMenuItemById('light-theme');
+  const darkThemeItem = menu.getMenuItemById('dark-theme');
 
   if (theme === 'light') {
     lightThemeItem.checked = true;
-  }
-  else if (theme === 'dark') {
+    darkThemeItem.checked = false;
+  } else if (theme === 'dark') {
+    lightThemeItem.checked = false;
     darkThemeItem.checked = true;
+  } else {
+    null
   }
 
   Menu.setApplicationMenu(menu);
 });
 
-window.onload = () => {
-  const theme = ipcRenderer.sendSync('get-system-theme');
-  document.body.className = theme +'!important';
-};
+ipcMain.on('get-system-theme', (event) => {
+  const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+  event.reply('system-theme', theme);
+});
