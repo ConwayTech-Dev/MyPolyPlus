@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
-  link.href = 'https://conwaytech-dev.github.io/MyPolyPlus/src/index.css';
+  link.href = 'https://conwaytech-dev.github.io/MyPolyPlus/src/style.css';
   head.appendChild(link);
   });
 

@@ -1,12 +1,12 @@
 const { ipcRenderer } = require('electron');
 
 ipcRenderer.on('change-theme', (event, theme) => {
-  document.body.className = theme;
+  document.body.className = theme + '!important';
 });
 
-window.onLoad = () => {
+window.onload = () => {
   const theme = ipcRenderer.sendSync('get-system-theme');
-  document.body.className = theme;
+  document.body.className = theme +'!important';
 };
 
 // Broken for now
