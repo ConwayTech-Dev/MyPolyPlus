@@ -1,7 +1,20 @@
-const { ipcRenderer } = require('electron');
+import { ipcRenderer } from 'electron';
+const { Menu } = require('electron');
 
 ipcRenderer.on('change-theme', (event, theme) => {
   document.body.className = theme + '!important';
+  const menu = Menu.getApplicationMenu();
+  const lThemeItem = menu.getMenuItemById('light-theme');
+  const dThemeItem = menu.getMenuItemById('dark-theme');
+
+  if (theme === 'light') {
+    lightThemeItem.checked = true;
+  }
+  else if (theme === 'dark') {
+    darkThemeItem.checked = true;
+  }
+
+  Menu.setApplicationMenu(menu);
 });
 
 window.onload = () => {

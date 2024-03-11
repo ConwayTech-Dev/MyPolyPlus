@@ -50,12 +50,18 @@ const template = [
     {
         label: 'Theme',
         submenu: [
-            { label: 'Light', type: 'radio', checked: true, click() {
-                BrowserWindow.getFocusedWindow().webContents.send('change-theme', 'light');}
-            },
-            { label: 'Dark', type: 'radio', click() {
-                BrowserWindow.getFocusedWindow().webContents.send('change-theme', 'dark');
-            } },
+            { label: 'Light', type: 'radio', id: 'light-theme', checked: true, click() {
+                const window = BrowserWindow.getFocusedWindow();
+                if (window) {
+                    window.webContents.send('change-theme', 'dark');
+                }
+            }},
+            { label: 'Dark', type: 'radio', id: 'light-theme', click() {
+                const window = BrowserWindow.getFocusedWindow();
+                if (window) {
+                    window.webContents.send('change-theme', 'dark');
+                }
+            }},
         ]
     },
 ]

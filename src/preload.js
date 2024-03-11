@@ -218,8 +218,14 @@ const isDivThere = new MutationObserver(() => {
     }
     else {
         console.log('loadingDiv has not been loaded');
-        var body = document.getElementsByTagName('body')[0];
-        body.style.backgroundImage = "none";
+        const bodyDiv = document.querySelector('body');
+        if (body) {
+            var body = document.getElementsByTagName('body')[0];
+            body.style.backgroundImage = "none";
+        }
+        else {
+          return;
+        }
     }
 });
 
@@ -254,7 +260,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
       )
     ) {
       loadingDiv.remove();
-  
       console.log("logged in");
     }
   };
