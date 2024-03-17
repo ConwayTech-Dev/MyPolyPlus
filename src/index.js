@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, nativeTheme } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const { mainMenu } = require('./menubar');
 const path = require('path');
 const fs = require('fs');
@@ -23,7 +23,6 @@ const createNormalWindow = () => {
   // Create the browser window.
   const win = new BrowserWindow({
     show: false,
-    backgroundColor: nativeTheme.shouldUseDarkColors ? darkBackgroundColor : lightBackgroundColor,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
@@ -31,7 +30,7 @@ const createNormalWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
-  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Chrome' });
+  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
@@ -61,7 +60,6 @@ const createFirstWindow = () => {
   // Create the browser window.
   const win = new BrowserWindow({
     show: false,
-    backgroundColor: nativeTheme.shouldUseDarkColors ? darkBackgroundColor : lightBackgroundColor,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
@@ -69,7 +67,7 @@ const createFirstWindow = () => {
       preload: path.join(__dirname, 'preload-first-run.js'),
     },
   });
-  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Chrome' });
+  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
@@ -91,7 +89,7 @@ const createFirstWindow = () => {
   }, 3850);
 
   win.webContents.on('did-finish-load', () => {
-    mainWindow.webContents.send('change-theme', theme);
+    win.webContents.send('change-theme', theme);
   });
 };
 
@@ -148,16 +146,13 @@ ipcMain.on('update-menu-theme', (event, theme) => {
   Menu.setApplicationMenu(themedMenu);
 });
 
-ipcMain.on('get-system-theme', (event) => {
-  const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
-  event.reply('system-theme', theme);
-});
+// Code for detecting system theme
+// ipcMain.on('get-system-theme', (event) => {
+//  const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
+//  event.reply('system-theme', theme);
+// });
 
 // Fix theme 'flashes'
-nativeTheme.on('updated', () => {
-	const backgroundColor = nativeTheme.shouldUseDarkColors
-		? darkBackgroundColor
-		: lightBackgroundColor;
-
-	window.setBackgroundColor(backgroundColor);
+ipcMain.on('change-theme', (event, theme) => {
+	window.setBackgroundColor(theme);
 });

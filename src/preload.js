@@ -414,6 +414,7 @@ function addQuoteToDiv() {
   let combinedIndex = (dayOfMonth * 24 + currentHour) % loading_messages.length;
   document.querySelector(".quote").innerHTML = loading_messages[combinedIndex];
 }
+// Marks the ending of AutoPortalLogin
 
 // Add CSS and JS to the pages
 window.addEventListener('DOMContentLoaded', async () => {
@@ -427,7 +428,6 @@ head.appendChild(link);
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
-  // adding renderer.js
   const head = document.getElementsByTagName('head')[0];
   const js = document.createElement('script');
   js.src = 'https://conwaytech-dev.github.io/MyPolyPlus/src/renderer.js';
@@ -437,14 +437,16 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 // Theming
 ipcRenderer.on('change-theme', (event, theme) => {
+  var body = document.getElementsByTagName('body')[0];
   document.body.className = theme;
   ipcRenderer.send('update-menu-theme', theme);
 });
 
-window.onload = () => {
-  ipcRenderer.send('get-system-theme');
-};
+// Detect system theme code
+// window.onload = () => {
+//  ipcRenderer.send('get-system-theme');
+// };
 
-ipcRenderer.on('system-theme', (event, theme) => {
-  document.body.className = theme;
-});
+// ipcRenderer.on('system-theme', (event, theme) => {
+//  document.body.className = theme;
+// });

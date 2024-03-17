@@ -3,6 +3,11 @@
   user-select: none !important;
 }
 
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
+  font-size: 13px !important;
+}
+
 #site-header-parent-container {
   -webkit-app-region: drag !important;
 }

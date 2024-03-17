@@ -19,25 +19,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     head.appendChild(js);
     });
 
-ipcMain.on('update-menu-theme', (event, theme) => {
-  const menu = Menu.getApplicationMenu();
-  const lightThemeItem = menu.getMenuItemById('light-theme');
-  const darkThemeItem = menu.getMenuItemById('dark-theme');
-
-  if (theme === 'light') {
-    lightThemeItem.checked = true;
-    darkThemeItem.checked = false;
-  } else if (theme === 'dark') {
-    lightThemeItem.checked = false;
-    darkThemeItem.checked = true;
-  } else {
-    null
-  }
-
-  Menu.setApplicationMenu(menu);
+// Theming
+ipcRenderer.on('change-theme', (event, theme) => {
+  var body = document.getElementsByTagName('body')[0];
+  document.body.className = theme;
+  ipcRenderer.send('update-menu-theme', theme);
 });
 
-ipcMain.on('get-system-theme', (event) => {
-  const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
-  event.reply('system-theme', theme);
-});
+// Detect system theme code
+// window.onload = () => {
+//  ipcRenderer.send('get-system-theme');
+// };
+
+// ipcRenderer.on('system-theme', (event, theme) => {
+//  document.body.className = theme;
+// });
