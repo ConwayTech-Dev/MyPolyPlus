@@ -16,7 +16,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Fixing the bad Poly logo
+    // Fixing some issues with Myschoolapp
   var logo = document.getElementsByClassName("banner-logo")[0];
   logo.src = 'https://raw.githubusercontent.com/ConwayTech-Dev/MyPolyPlus/main/assets/icon.png'
+  var diffEmailButton = document.getElementsByClassName("sky-btn-link-inline")[0];
+  diffEmailButton.hidden = true;
 });
