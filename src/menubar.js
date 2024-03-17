@@ -53,10 +53,10 @@ const template = [
             { label: 'Light', type: 'radio', id: 'light-theme', checked: true, click() {
                 const window = BrowserWindow.getFocusedWindow();
                 if (window) {
-                    window.webContents.send('change-theme', 'dark');
+                    window.webContents.send('change-theme', 'light');
                 }
             }},
-            { label: 'Dark', type: 'radio', id: 'light-theme', click() {
+            { label: 'Dark', type: 'radio', id: 'dark-theme', click() {
                 const window = BrowserWindow.getFocusedWindow();
                 if (window) {
                     window.webContents.send('change-theme', 'dark');

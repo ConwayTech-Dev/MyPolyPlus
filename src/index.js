@@ -16,10 +16,14 @@ if (fs.existsSync(themePath)) {
   theme = fs.readFileSync(themePath, 'utf8');
 }
 
+const darkBackgroundColor = 'black';
+const lightBackgroundColor = 'white';
+
 const createNormalWindow = () => {
   // Create the browser window.
   const win = new BrowserWindow({
     show: false,
+    backgroundColor: nativeTheme.shouldUseDarkColors ? darkBackgroundColor : lightBackgroundColor,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
@@ -57,6 +61,7 @@ const createFirstWindow = () => {
   // Create the browser window.
   const win = new BrowserWindow({
     show: false,
+    backgroundColor: nativeTheme.shouldUseDarkColors ? darkBackgroundColor : lightBackgroundColor,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
@@ -129,17 +134,15 @@ ipcMain.on('change-theme', (event, theme) => {
 // Themes
 ipcMain.on('update-menu-theme', (event, theme) => {
   const themedMenu = Menu.getApplicationMenu();
-  const lightThemeItem = menu.getMenuItemById('light-theme');
-  const darkThemeItem = menu.getMenuItemById('dark-theme');
+  const lightThemeItem = themedMenu.getMenuItemById('light-theme');
+  const darkThemeItem = themedMenu.getMenuItemById('dark-theme');
 
   if (theme === 'light') {
     lightThemeItem.checked = true;
     darkThemeItem.checked = false;
-  } else if (theme === 'dark') {
+  } else {
     lightThemeItem.checked = false;
     darkThemeItem.checked = true;
-  } else {
-    null
   }
 
   Menu.setApplicationMenu(themedMenu);
@@ -148,4 +151,13 @@ ipcMain.on('update-menu-theme', (event, theme) => {
 ipcMain.on('get-system-theme', (event) => {
   const theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
   event.reply('system-theme', theme);
+});
+
+// Fix theme 'flashes'
+nativeTheme.on('updated', () => {
+	const backgroundColor = nativeTheme.shouldUseDarkColors
+		? darkBackgroundColor
+		: lightBackgroundColor;
+
+	window.setBackgroundColor(backgroundColor);
 });

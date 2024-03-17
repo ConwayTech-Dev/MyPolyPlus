@@ -438,34 +438,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 // Theming
 ipcRenderer.on('change-theme', (event, theme) => {
   document.body.className = theme;
-  const menu = Menu.getApplicationMenu();
-  const lThemeItem = menu.getMenuItemById('light-theme');
-  const dThemeItem = menu.getMenuItemById('dark-theme');
-
-  if (theme === 'light') {
-    lThemeItem.checked = true;
-  }
-  else if (theme === 'dark') {
-    dThemeItem.checked = true;
-  }
-
-  Menu.setApplicationMenu(menu);
-});
-
-window.onload = () => {
-  const theme = ipcRenderer.sendSync('get-system-theme');
-  document.body.className = theme +'!important';
-};
-
-
-
-
-
-
-
-// Theming
-ipcRenderer.on('change-theme', (event, theme) => {
-  document.body.className = theme;
   ipcRenderer.send('update-menu-theme', theme);
 });
 
