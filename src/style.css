@@ -1,104 +1,101 @@
+/* Global CSS modifiers */
 *, a, button {
-  cursor: default !important;
-  user-select: none !important;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
-  font-size: 13px !important;
+  cursor: default !important; /* Show the default cursor at all times to simulate a native experience */
+  user-select: none !important; /* Show the default cursor at all times to simulate a native experience */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important; /* Use macOS's font to become a good Apple citizen */
+  font-size: 13px !important; /* Use a smaller font size to fit more content on the screen */
 }
 
-.bb-tile-header {
-  font-weight: bold !important;
-  font-size: 20px !important;
-}
-
-.caret {
-  font: normal normal normal 14px/1 FontAwesome !important;
-}
-
-.topnav {
+.topnav { /* Allow navigation bars to be interacted with */
   -webkit-app-region: no-drag !important;
 }
 
-.assignment-center-btn:hover {
-  background-color: #2021240a !important;
-}
-
-.course-requests-btn:hover {
-  background-color: #2021240a !important;
-}
-
-.schedule-btn:hover {
-  background-color: #2021240a !important;
-}
-
-.progress-btn:hover {
-  background-color: #2021240a !important;
-}
-
-.subnavbar .nav>li>a:hover {
-  border-radius: 20px !important;
-}
-
-.btn {
-  border-radius: 20px !important;
-}
-
-#site-header-parent-container {
+#site-header-parent-container { /* Allow site headers to move the app */
   -webkit-app-region: drag !important;
 }
 
-#googleButtonLabel {
+.dark {
+  background-color: #1f1f1f !important;
+  color: #F5EFF7 !important;
+  /* background-color: #322F35 !important; */
+}
+
+.light {
+  background-color: #FEF7FF !important;
+  color: #1D1B20 !important;
+}
+
+/* ----------- */
+
+/* Modifiers for the page viewed on first run */
+.banner-logo { /* Center the logo */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.sky-page-heading { /* Modify the welcome heading to look better */
+  background-image: linear-gradient(90deg,#c74677,#d65372,#e2616e,#ec716a,#f38168,#f99267,#fda468,#ffb56b) !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-color: #ffb23e !important;
+  font-weight: bold !important;
+  font-size: 35px !important;
+}
+
+#googleButtonLabel { /* Modify the Sign in with Google text to look better */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
   background-image: linear-gradient(90deg,#4285F4,#DB4437,#F4B400,#0F9D58) !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-color: #ffb23e !important;
   font-weight: bold !important;
+  font-size: 18px !important;
 }
 
-.sky-theme-modern .sky-btn-primary {
-  background-color: #FFFFFF !important;
-  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+.spa-auth-button-full { /* Use 20px border radius on the Sign in with Google button */
+  border-radius: 20px
 }
 
-.spa-auth-googlesignin-primary-logo-button {
-  border-radius: 11px 0 0 11px !important;
+svg { /* Fix the Google logo looking terrible */
+  line-height: 1 !important;
 }
 
-.spa-auth-googlesignin-primary-button {
-  border-radius: 0 11px 11px 0 !important;
+/* ----------- */
+
+/* Modifiers for MyPoly in general */
+.caret { /* Fix issues that occur after switching to macOS native font */
+  font: normal normal normal 14px/1 FontAwesome !important;
 }
 
-.sky-theme-modern .sky-btn-default:hover {
-  background-color: #d7dae359 !important;
-  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
-}
-
-.sky-btn-primary:hover {
-  background-color: #d7dae359 !important;
-  box-shadow: inset 0 0 0 1px #d2d2d2 !important;
-}
-
-.sky-page-heading {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
-  background-image: linear-gradient(90deg,#c74677,#d65372,#e2616e,#ec716a,#f38168,#f99267,#fda468,#ffb56b) !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-color: #ffb23e !important;
+.bb-tile-header { /* After unifying font size, this ensures headers will be readable*/
   font-weight: bold !important;
+  font-size: 20px !important;
 }
 
-.banner-logo {
-  margin-left: auto !important;
-  margin-right: auto !important;
+.btn { /* Use 20px border radius on all buttons */
+  border-radius: 20px !important;
 }
 
-/* Dark mode */
-.dark {
-  background-color: #121212 !important;
-  color: #fff !important;
+.sky-btn-default:hover {
+  background-color: #d7dae359 !important;
 }
 
-.light {
-  background-color: #fff !important;
-  color: #000 !important;
+.subnavbar .nav>li>a {
+  border-radius: 20px !important;
+}
+
+#assignment-center-btn:hover {
+  background-color: #2021240a !important;
+}
+
+#course-requests-btn:hover {
+  background-color: #2021240a !important;
+}
+
+#schedule-btn:hover {
+  background-color: #2021240a !important;
+}
+
+#progress-btn:hover {
+  background-color: #2021240a !important;
 }

@@ -1,0 +1,36 @@
+
+  
+  #assignment-center-btn:hover {
+    background-color: #2021240a !important;
+  }
+  
+  #course-requests-btn:hover {
+    background-color: #2021240a !important;
+  }
+  
+  #schedule-btn:hover {
+    background-color: #2021240a !important;
+  }
+  
+  #progress-btn:hover {
+    background-color: #2021240a !important;
+  }
+  
+  .subnavbar .nav>li>a:hover {
+    border-radius: 20px !important;
+  }
+  
+  .sky-btn-primary {
+    background-color: #FFFFFF !important;
+    box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+  }
+  
+  .sky-theme-modern .sky-btn-default:hover {
+    background-color: #d7dae359 !important;
+    box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+  }
+  
+  .sky-btn-primary:hover {
+    background-color: #d7dae359 !important;
+    box-shadow: inset 0 0 0 1px #d2d2d2 !important;
+  }
