@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, ipcRenderer } = require('electron');
 const { mainMenu } = require('./menubar');
 const path = require('path');
 const fs = require('fs');
@@ -131,19 +131,23 @@ ipcMain.on('change-theme', (event, theme) => {
 
 // Themes
 ipcMain.on('update-menu-theme', (event, theme) => {
-  const themedMenu = Menu.getApplicationMenu();
-  const lightThemeItem = themedMenu.getMenuItemById('light-theme');
-  const darkThemeItem = themedMenu.getMenuItemById('dark-theme');
+  try {
+    const themedMenu = Menu.getApplicationMenu();
+    const lightThemeItem = themedMenu.getMenuItemById('light-theme');
+    const darkThemeItem = themedMenu.getMenuItemById('dark-theme');
 
-  if (theme === 'light') {
-    lightThemeItem.checked = true;
-    darkThemeItem.checked = false;
-  } else {
-    lightThemeItem.checked = false;
-    darkThemeItem.checked = true;
+    if (theme === 'light') {
+      lightThemeItem.checked = true;
+      darkThemeItem.checked = false;
+    } else {
+      lightThemeItem.checked = false;
+      darkThemeItem.checked = true;
+    }
+
+    Menu.setApplicationMenu(themedMenu);
+  } catch (err) {
+    console.log('broken theme');
   }
-
-  Menu.setApplicationMenu(themedMenu);
 });
 
 // Code for detecting system theme

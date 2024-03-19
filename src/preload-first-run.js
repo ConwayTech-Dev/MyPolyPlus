@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 ipcRenderer.on('change-theme', (event, theme) => {
   var body = document.getElementsByTagName('body')[0];
   document.body.className = theme;
-  ipcRenderer.send('update-menu-theme', theme);
 });
 
 // Detect system theme code

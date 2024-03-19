@@ -54,12 +54,14 @@ const template = [
                 const window = BrowserWindow.getFocusedWindow();
                 if (window) {
                     window.webContents.send('change-theme', 'light');
+                    window.webContents.send('update-menu-theme', 'light')
                 }
             }},
             { label: 'Dark', type: 'radio', id: 'dark-theme', click() {
                 const window = BrowserWindow.getFocusedWindow();
                 if (window) {
                     window.webContents.send('change-theme', 'dark');
+                    window.webContents.send('update-menu-theme', 'dark')
                 }
             }},
         ]

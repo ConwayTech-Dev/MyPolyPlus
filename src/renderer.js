@@ -11,19 +11,21 @@ window.addEventListener('DOMContentLoaded', () => {
     const signInNormal = document.getElementsByClassName('spa-auth-button-full')[0];
     const headerLogo = document.getElementsByClassName('banner-logo')
 
-
-    // If the 'sky-page-heading' element exists, change its text
     if (welcome) {
       welcome.innerHTML = 'Welcome to MyPoly+';
+      console.log('done')
     }
 
     if (reqEmailAndPss) {
-      reqEmail.hidden = true;
+      for (let i = 0; i < reqEmailAndPss.length; i++) {
+        reqEmailAndPss[i].hidden = true;
+      }
     }
 
-    // If the 'sky-btn-link-inline' element exists, hide it
     if (dumbLinks) {
-      diffEmailButton.hidden = true;
+      for (let i = 0; i < dumbLinks.length; i++) {
+        dumbLinks[i].hidden = true;
+      }
     }
 
     if (signUp) {
