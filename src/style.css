@@ -5,8 +5,13 @@
   font-size: 13px !important;
 }
 
-.desc {
+.bb-tile-header {
   font-weight: bold !important;
+  font-size: 20px !important;
+}
+
+.caret {
+  font: normal normal normal 14px/1 FontAwesome !important;
 }
 
 .topnav {
@@ -29,11 +34,11 @@
   background-color: #2021240a !important;
 }
 
-.subnavbar .nav > .active > a, .subnavbar .nav > .active > a:hover {
+.subnavbar .nav>li>a:hover {
   border-radius: 20px !important;
 }
 
-.btn-primary {
+.btn {
   border-radius: 20px !important;
 }
 
