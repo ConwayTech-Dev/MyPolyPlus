@@ -1,15 +1,40 @@
 *, a, button {
   cursor: default !important;
   user-select: none !important;
-}
-
-html, body {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
   font-size: 13px !important;
 }
 
-#bb-tile-header {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important;
+.desc {
+  font-weight: bold !important;
+}
+
+.topnav {
+  -webkit-app-region: no-drag !important;
+}
+
+.assignment-center-btn:hover {
+  background-color: #2021240a !important;
+}
+
+.course-requests-btn:hover {
+  background-color: #2021240a !important;
+}
+
+.schedule-btn:hover {
+  background-color: #2021240a !important;
+}
+
+.progress-btn:hover {
+  background-color: #2021240a !important;
+}
+
+.subnavbar .nav > .active > a, .subnavbar .nav > .active > a:hover {
+  border-radius: 20px !important;
+}
+
+.btn-primary {
+  border-radius: 20px !important;
 }
 
 #site-header-parent-container {
@@ -63,12 +88,12 @@ html, body {
 }
 
 /* Dark mode */
-#dark {
+.dark {
   background-color: #000 !important;
   color: #fff !important;
 }
 
-#light {
+.light {
   background-color: #fff !important;
   color: #000 !important;
 }

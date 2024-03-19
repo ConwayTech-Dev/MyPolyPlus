@@ -208,7 +208,7 @@ sessionStorage.setItem('wallpaper', wp[Math.floor(Math.random() * wp.length)]);
 
 // Add background to while loadingDiv is active
 const isDivThere = new MutationObserver(() => {
-    const loadingDiv = document.querySelector('.loadingDiv');
+    const loadingDiv = document.querySelector('#loadingDiv');
     if (loadingDiv) {
         console.log('loadingDiv has been loaded');
         var body = document.getElementsByTagName('body')[0];
