@@ -12,8 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const headerLogo = document.getElementsByClassName('banner-logo')
 
     if (welcome) {
-      welcome.innerHTML = 'Welcome to MyPoly+';
+      welcome.textContent = 'Welcome to MyPoly+';
       console.log('done')
+      document.appendChild(welcome)
     }
 
     if (reqEmailAndPss) {
@@ -29,15 +30,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     if (signUp) {
-      signUp.hidden = true;
+      signUp.remove();
     }
 
     if (useApple) {
-      useApple.hidden = true;
+      useApple.remove();
     }
 
     if (signInNormal) {
-      signInNormal.hidden = true;
+      signInNormal.remove();
     }
 
     if (headerLogo) {
