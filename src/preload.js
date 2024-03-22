@@ -210,7 +210,6 @@ sessionStorage.setItem('wallpaper', wp[Math.floor(Math.random() * wp.length)]);
 const isDivThere = new MutationObserver(() => {
     const loadingDiv = document.querySelector('#loadingDiv');
     if (loadingDiv) {
-        console.log('loadingDiv has been loaded');
         var body = document.getElementsByTagName('body')[0];
         var getWp = sessionStorage.getItem('wallpaper');
         body.style.backgroundImage = `url(${getWp})`;
@@ -219,7 +218,6 @@ const isDivThere = new MutationObserver(() => {
         body.style.backgroundRepeat = "no-repeat";
     }
     else {
-        console.log('loadingDiv has not been loaded');
         const bodyDiv = document.querySelector('body');
         if (body) {
             var body = document.getElementsByTagName('body')[0];
@@ -439,7 +437,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 ipcRenderer.on('change-theme', (event, theme) => {
   var body = document.getElementsByTagName('body')[0];
   document.body.className = theme;
-  console.log('changed theme via preload')
 });
 
 // Detect system theme code
