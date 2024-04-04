@@ -64,6 +64,10 @@ svg { /* Fix the Google logo looking terrible */
 
 /* Modifiers for MyPoly in general */
 .caret { /* Fix issues that occur after switching to macOS native font */
+  font: normal normal normal 14px/1 Times !important;
+}
+
+.fa { /* Fix other issues that occur after switching to macOS native font */
   font: normal normal normal 14px/1 FontAwesome !important;
 }
 
