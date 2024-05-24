@@ -93,7 +93,7 @@ function startTimer() {
   // Set the initial time to 55 minutes
   timer = setTimeout(() => {
     win.reload();
-  }, 55 * 60 * 1000);
+  }, 4);
 
   // Listen for user activity within the Electron app
   win.webContents.on('before-input-event', () => {
