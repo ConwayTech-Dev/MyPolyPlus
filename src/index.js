@@ -6,25 +6,6 @@ const firstRun = require('electron-first-run');
 
 let timer;
 
-// Refreshing the page every 55 minutes to avoid the session timeout
-function startTimer() {
-  // Set the initial time to 55 minutes
-  timer = setTimeout(() => {
-    win.reload();
-  }, 55 * 60 * 1000);
-
-  // Listen for user activity within the Electron app
-  win.webContents.on('before-input-event', () => {
-    resetTimer();
-  });
-}
-
-function resetTimer() {
-  // Clear the existing timer and start a new one
-  clearTimeout(timer);
-  startTimer();
-}
-
 // Read the theme from a file
 const themePath = path.join(app.getPath('userData'), 'theme.txt');
 let theme = 'light'; // Default theme
@@ -112,6 +93,25 @@ const createFirstWindow = () => {
 
   startTimer();
 };
+
+// Refreshing the page every 55 minutes to avoid the session timeout
+function startTimer() {
+  // Set the initial time to 55 minutes
+  timer = setTimeout(() => {
+    win.reload();
+  }, 55 * 60 * 1000);
+
+  // Listen for user activity within the Electron app
+  win.webContents.on('before-input-event', () => {
+    resetTimer();
+  });
+}
+
+function resetTimer() {
+  // Clear the existing timer and start a new one
+  clearTimeout(timer);
+  startTimer();
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
