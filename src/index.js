@@ -4,18 +4,17 @@ const path = require('path');
 const fs = require('fs');
 const firstRun = require('electron-first-run');
 
-// Refreshing the page every 55 minutes to avoid the session timeout
-let mainWindow;
 let timer;
 
+// Refreshing the page every 55 minutes to avoid the session timeout
 function startTimer() {
   // Set the initial time to 55 minutes
   timer = setTimeout(() => {
-    mainWindow.reload();
+    win.reload();
   }, 55 * 60 * 1000);
 
   // Listen for user activity within the Electron app
-  mainWindow.webContents.on('before-input-event', () => {
+  win.webContents.on('before-input-event', () => {
     resetTimer();
   });
 }
