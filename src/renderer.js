@@ -1,3 +1,5 @@
+console.log("renderer.js loaded");
+
 // Remove stupid things on the first run login page and change the logo
 window.addEventListener('DOMContentLoaded', () => {
   const observer = new MutationObserver(() => {

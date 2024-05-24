@@ -4,9 +4,26 @@ const path = require('path');
 const fs = require('fs');
 const firstRun = require('electron-first-run');
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) {
-  app.quit();
+// Refreshing the page every 55 minutes to avoid the session timeout
+let mainWindow;
+let timer;
+
+function startTimer() {
+  // Set the initial time to 55 minutes
+  timer = setTimeout(() => {
+    mainWindow.reload();
+  }, 55 * 60 * 1000);
+
+  // Listen for user activity within the Electron app
+  mainWindow.webContents.on('before-input-event', () => {
+    resetTimer();
+  });
+}
+
+function resetTimer() {
+  // Clear the existing timer and start a new one
+  clearTimeout(timer);
+  startTimer();
 }
 
 // Read the theme from a file
@@ -54,6 +71,8 @@ const createNormalWindow = () => {
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('change-theme', theme);
   });
+
+  startTimer();
 };
 
 const createFirstWindow = () => {
@@ -91,6 +110,8 @@ const createFirstWindow = () => {
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('change-theme', theme);
   });
+
+  startTimer();
 };
 
 // This method will be called when Electron has finished
@@ -120,7 +141,6 @@ app.on('activate', () => {
     createNormalWindow();
   }
 });
-
 
 // Save themes
 ipcMain.on('change-theme', (event, theme) => {
