@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const firstRun = require('electron-first-run');
 
+let win;
 let timer;
 
 // Read the theme from a file
