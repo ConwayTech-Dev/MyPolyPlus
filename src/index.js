@@ -16,15 +16,18 @@ if (fs.existsSync(themePath)) {
 const darkBackgroundColor = 'black';
 const lightBackgroundColor = 'white';
 
-const createNormalWindow = () => {
+const createWindow = () => {
   // Create the browser window.
+
+  const preload = firstRun() ? 'preload-first-run.js' : 'preload.js';
+
   const win = new BrowserWindow({
     show: false,
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/assets/icon.png'),
     webPreferences: {
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, preload),
     },
   });
   win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
@@ -47,45 +50,6 @@ const createNormalWindow = () => {
     win.show();
     win.maximize();
   }, 4200);
-
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('change-theme', theme);
-  });
-
-  startTimer();
-};
-
-const createFirstWindow = () => {
-  // Create the browser window.
-  const win = new BrowserWindow({
-    show: false,
-    titleBarStyle: 'hidden',
-    icon: path.join(__dirname, '/assets/icon.png'),
-    webPreferences: {
-      nodeIntegration: true,
-      preload: path.join(__dirname, 'preload-first-run.js'),
-    },
-  });
-  win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
-
-  // Menu bar
-  Menu.setApplicationMenu(mainMenu);
-
-  var splash = new BrowserWindow({
-    width: 500, height: 300,
-    transparent: true,
-    frame: false,
-    alwaysOnTop: true
-  });
-
-  splash.loadFile('src/splash/index.html');
-  splash.center();
-
-  setTimeout(function() {
-    splash.close();
-    win.show();
-    win.maximize();
-  }, 3850);
 
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('change-theme', theme);
@@ -118,11 +82,7 @@ function resetTimer() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  if (firstRun()) {
-    createFirstWindow();
-  } else {
-    createNormalWindow();
-  }
+  createWindow();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
