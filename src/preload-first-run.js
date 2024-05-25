@@ -22,15 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
 // Theming
 ipcRenderer.on('change-theme', (event, theme) => {
   var body = document.getElementsByTagName('body')[0];
-  document.body.className = theme;
+  body.className = theme;
   if (theme === 'dark') {
-    document.body.className = 'ncl';
+    body.className = 'nc';
   }
   else if (theme === 'light') {
-    document.body.className = 'ncl';
+    body.className = 'nc';
   }
   else {
-    return;
+    body.classList.remove("nc");
   }
 });
 
