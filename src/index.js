@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const firstRun = require('electron-first-run');
 
-let win;
 let timer;
 
 // Read the theme from a file
@@ -29,25 +28,6 @@ const createNormalWindow = () => {
     },
   });
   win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
-
-// Refreshing the page every 55 minutes to avoid the session timeout
-function startTimer() {
-  // Set the initial time to 55 minutes
-  timer = setTimeout(() => {
-    win.reload();
-  }, 55 * 60 * 1000);
-
-  // Listen for user activity within the Electron app
-  win.webContents.on('before-input-event', () => {
-    resetTimer();
-  });
-}
-
-function resetTimer() {
-  // Clear the existing timer and start a new one
-  clearTimeout(timer);
-  startTimer();
-}
 
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
@@ -88,25 +68,6 @@ const createFirstWindow = () => {
   });
   win.loadURL("https://app.blackbaud.com/signin/?redirectUrl=https:%2F%2Fpolytechnic.myschoolapp.com%2Fapp%3FsvcId%3Dedu%26envId%3Dp-QNcH02hZvE-V-xfBeGIQ4Q%26bb_id%3D1%23login&", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' });
 
-// Refreshing the page every 55 minutes to avoid the session timeout
-function startTimer() {
-  // Set the initial time to 55 minutes
-  timer = setTimeout(() => {
-    win.reload();
-  }, 4);
-
-  // Listen for user activity within the Electron app
-  win.webContents.on('before-input-event', () => {
-    resetTimer();
-  });
-}
-
-function resetTimer() {
-  // Clear the existing timer and start a new one
-  clearTimeout(timer);
-  startTimer();
-}
-
   // Menu bar
   Menu.setApplicationMenu(mainMenu);
 
@@ -132,6 +93,26 @@ function resetTimer() {
 
   startTimer();
 };
+
+// Refreshing the page every 55 minutes to avoid the session timeout
+function startTimer() {
+  // Set the initial time to 55 minutes
+  timer = setTimeout(() => {
+    currentWin = BrowserWindow.getFocusedWindow();
+    currentWin.reload();
+  }, 55 * 60 * 1000);
+
+  // Listen for user activity within the Electron app
+  win.webContents.on('before-input-event', () => {
+    resetTimer();
+  });
+}
+
+function resetTimer() {
+  // Clear the existing timer and start a new one
+  clearTimeout(timer);
+  startTimer();
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -174,13 +155,20 @@ ipcMain.on('update-menu-theme', (event, theme) => {
     const themedMenu = Menu.getApplicationMenu();
     const lightThemeItem = themedMenu.getMenuItemById('light-theme');
     const darkThemeItem = themedMenu.getMenuItemById('dark-theme');
+    const classicThemeItem = themedMenu.getMenuItemById('classic-theme');
 
     if (theme === 'light') {
       lightThemeItem.checked = true;
       darkThemeItem.checked = false;
-    } else {
+      classicThemeItem.checked = false;
+    } else if (theme === 'dark') {
       lightThemeItem.checked = false;
       darkThemeItem.checked = true;
+      classicThemeItem.checked = false;
+    } else {
+      lightThemeItem.checked = false;
+      darkThemeItem.checked = false;
+      classicThemeItem.checked = true;
     }
 
     Menu.setApplicationMenu(themedMenu);

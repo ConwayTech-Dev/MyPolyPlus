@@ -64,6 +64,13 @@ const template = [
                     window.webContents.send('update-menu-theme', 'dark')
                 }
             }},
+            { label: 'Classic', type: 'radio', id: 'classic-theme', click() {
+                const window = BrowserWindow.getFocusedWindow();
+                if (window) {
+                    window.webContents.send('change-theme', 'classic');
+                    window.webContents.send('update-menu-theme', 'classic')
+                }
+            }}
         ]
     },
 ]
