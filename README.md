@@ -15,8 +15,8 @@ A convenient and easy-to-use MyPoly client for macOS. It's blazingly fast, bleed
 # Features
 
 * Bypass Blackbaud's timeout with MyPolyAutoLogin integration
-* Use custom themes for a customized UI
 * Rather than locally storing all files, talk to GitHub when looking for CSS, resulting in instant over-the-air updates to CSS
+* Refresh MyPoly's old design with a refined interface
 
 # Contributing
 
