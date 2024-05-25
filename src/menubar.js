@@ -66,6 +66,7 @@ const template = [
             }},
             { label: 'Classic', type: 'radio', id: 'classic-theme', click() {
                 const window = BrowserWindow.getFocusedWindow();
+                dialog.showErrorBox("Warning", "Using the Classic theme isn't recommended. It removes any customizations added to MyPoly, and it could cause issues.") 
                 if (window) {
                     window.webContents.send('change-theme', 'classic');
                     window.webContents.send('update-menu-theme', 'classic')

@@ -60,16 +60,29 @@ const createWindow = () => {
 
 // Refreshing the page every 55 minutes to avoid the session timeout
 function startTimer() {
+  let currentWin = BrowserWindow.getFocusedWindow();
+  
   // Set the initial time to 55 minutes
   timer = setTimeout(() => {
-    currentWin = BrowserWindow.getFocusedWindow();
+    // If there's no focused window, return early
+    if (!currentWin) {
+      console.log('No focused window');
+      return;
+    }
+
     currentWin.reload();
-  }, 55 * 60 * 1000);
+  // }, 55 * 60 * 1000);
+  }, 5000);
 
   // Listen for user activity within the Electron app
-  win.webContents.on('before-input-event', () => {
-    resetTimer();
-  });
+  if (currentWin) {
+    currentWin.webContents.on('before-input-event', () => {
+      resetTimer();
+    });
+  } else {
+    console.log('No focused window');
+    return
+  }
 }
 
 function resetTimer() {
@@ -98,7 +111,7 @@ app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
-    createNormalWindow();
+    createWindow()();
   }
 });
 

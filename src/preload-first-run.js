@@ -23,6 +23,15 @@ window.addEventListener('DOMContentLoaded', () => {
 ipcRenderer.on('change-theme', (event, theme) => {
   var body = document.getElementsByTagName('body')[0];
   document.body.className = theme;
+  if (theme === 'dark') {
+    document.body.className = 'ncl';
+  }
+  else if (theme === 'light') {
+    document.body.className = 'ncl';
+  }
+  else {
+    return;
+  }
 });
 
 // Detect system theme code
