@@ -484,7 +484,15 @@ window.addEventListener('DOMContentLoaded', () => {
 // Theming
 ipcRenderer.on('change-theme', (event, theme) => {
   var body = document.getElementsByTagName('body')[0];
-  document.body.className = theme;
+  if (theme === 'dark') {
+    body.className = 'nc dark';
+  }
+  else if (theme === 'light') {
+    body.className = 'nc light';
+  }
+  else {
+    body.className = 'classic';
+  }
 });
 
 // Detect system theme code

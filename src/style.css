@@ -4,7 +4,7 @@
   user-select: none !important; /* Show the default cursor at all times to simulate a native experience */
 }
 
-.nc, *, a, button {
+.nc {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont !important; /* Use macOS's font to become a good Apple citizen */
   font-size: 13px !important; /* Use a smaller font size to fit more content on the screen */
 }

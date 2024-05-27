@@ -25,12 +25,21 @@ ipcRenderer.on('change-theme', (event, theme) => {
   body.className = theme;
   if (theme === 'dark') {
     body.className = 'nc';
+    body.className = 'dark'
+    body.classList.remove('light')
+    console.log('changed to nc')
   }
   else if (theme === 'light') {
     body.className = 'nc';
+    body.className = 'light'
+    body.classList.remove('dark')
+    console.log('changed to nc')
   }
   else {
     body.classList.remove("nc");
+    body.classList.remove('light')
+    body.classList.remove('dark')
+    console.log('removed nc')
   }
 });
 
